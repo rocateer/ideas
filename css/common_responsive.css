@@ -29,9 +29,9 @@ h2{font-size: 18px; font-family: 'font-b';}
 
 header{min-width:100%; width:100%; height:100%; position:absolute; left: -100%; top:0; z-index:200; transition: left 0.5s ease; align-items:stretch; display: flex; flex-direction: column; padding: 0; justify-content: flex-start;}
 header.open{left:0; height: 100vh; overflow: auto;}
-header .header_logo .logo_img{width:100px;}
+header .header_logo{height:36px;}
 header .left_area{display:flex; width: 100%; justify-content: space-between; align-items: center; height:60px; padding:14px 20px;}
-header .left_area .header_logo{height: 24px; width: auto;}
+header .left_area .header_logo{height:36px; width: auto;}
 header nav{width: 100%; position: relative; left: 0; top:0; transform:none;}
 header nav ul{flex-direction: column; justify-content: flex-start; align-items: flex-start; gap:0px; padding: 0 24px; box-sizing: border-box;}
 header nav ul li{width: 100%;}
@@ -42,7 +42,7 @@ header .menu_my{padding: 0 24px; width: 100%; box-sizing: border-box;}
 header .menu_my button{display: none;}
 header .menu_my .my_submenu{position: relative; top:0; width: 100%; border: none; box-shadow: none; padding-top: 16px;}
 header .menu_my .my_submenu_wrap{display: block;}
-header .menu_my .my_submenu li a{padding: 16px 0; font-size:20px; padding:12px 24px; color:var(--gray_500);}
+header .menu_my .my_submenu li a{padding: 16px 0; font-size:18px; padding:14px 24px; color:var(--gray_500);}
 
 .menu_alarm{background:#f8f8f8; height: 60px; display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 24px; box-sizing: border-box; margin-top: 30px; font-size: 18px; color: var(--gray-1);}
 .btn_logout{text-align: right; padding: 0 24px; box-sizing: border-box; width: 100%;}
@@ -72,7 +72,7 @@ header .btn_txt a{width: 100%; border: 1px solid var(--deepline); color:var(--gr
 .m_header .layer_menu a{padding:14px 8px;}
 .m_header .m_title input{width:calc(100% - 100px); border: none; font-size: 16px;}
 .m_header .m_title button .input_delete{display: none; position: absolute; right:55px; top:16px;}
-.m_header .logo_img{height: 24px;}
+.m_header .header_logo{height:36px;}
 
 .m_btn_bookmark{background:url('../images/header_bookmark_default.png') no-repeat; background-size:24px auto; width:24px; height:24px;}
 .m_btn_bookmark.on {background:url('../images/header_bookmark_on.png') no-repeat; background-size:24px auto;}
