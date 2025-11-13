@@ -1,0 +1,177 @@
+<html lang="kor">
+<head>
+    <title>품앗elink-모두의 정보, 소통과 경제협력 공동체</title>
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!--메타 : 메타 태그만 사용-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!--내부 기본 CSS : 내부에서 생성한 CSS만 사용-->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/common_responsive.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_responsive.css">
+
+    <!--외부 CSS : 외부 모듈에서 제공된 CSS만 사용-->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+
+    <!--내부 기본 JS : 내부에서 생성한 JS 경우만 사용 하며. 이를 사용하기 위한 라이브러만사용(jquery.js) -->
+    <script src="js/jquery-1.12.4.min.js"></script> 
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/common.js"></script>
+
+    <!--외부 JS : 외부 모듈에서 제공된 JS만 사용-->
+    <script src="js/swiper.jquery.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+</head>
+  <body>
+    <header class="off ease">
+        <div class="left_area">
+            <h1><a href="main.html"><img src="images/logo.png" class="header_logo"></a></h1>
+            <button onclick="sideNavToggle()"><img src="images/header_btn_close.png" class="ic_24 only_m"></button>
+        </div>
+
+        <!-- m :: s -->
+        <div class="m_my_wrap only_m">
+            <div class="group_between">
+                <div class="column_8">
+                    <span class="master_1">전문가</span>
+                    <div class="gray_600"><b>홍길동</b>님 환영합니다.</div>
+                </div>
+                <a href="main.html" class="header_btn">로그아웃</a>
+            </div>
+            <!-- 로그아웃 시 -->
+            <div class="item_wrap">
+                <a href="login.html" class="header_btn flex">로그인</a>
+                <a href="join_agree.html" class="header_btn flex">회원가입</a>
+            </div>
+        </div>
+        <!-- m :: e -->
+
+        <nav>
+            <ul>
+                <li><a href="master.html">마스터</a></li>
+                <li><a href="master_qa.html">지식공유</a></li>
+                <li><a href="community.html">커뮤니티</a></li>
+                <li><a href="chat.html">품앗이 챗</a></li>
+                <li class="only_m"><a href="#">마이페이지</a></li>
+            </ul>
+        </nav>
+
+        <div class="right_area">
+            <!-- 로그인 시 -->
+            <div class="menu_my menu_wrapper">
+                <button class="menu_item"><span class="master_1">전문가</span>홍길동님 환영합니다.</button>
+                <div class="my_submenu_wrap">
+                    <ul class="my_submenu">
+                        <li><a href="my_info.html">내 정보 수정</a></li>
+                        <li><a href="master_info.html">마스터 정보 수정</a></li>
+                        <li><a href="scrap_master.html">스크랩</a></li>
+                        <li><a href="my_community.html">내가 쓴 글</a></li>
+                        <li><a href="my_send_review.html">리뷰</a></li>
+                        <li><a href="qa.html">1:1 문의</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="only_pc"><a href="main.html" class="header_btn">로그아웃</a></div>
+            <!-- 로그아웃 시 -->
+            <div class="item_wrap only_pc">
+                <a href="login.html" class="header_btn">로그인</a>
+                <a href="join_agree.html" class="header_btn">회원가입</a>
+            </div>
+        </div>
+    </header>
+    <!----------------------------- m::header bar : s ----------------------------->
+    <div class="m_header_wrap">
+        <div class="m_header">
+            <div class="left_area"><button onclick="history.back()"><img src="images/header_btn_back.png"></button></div>
+            <div class="m_title">회원 가입</div>
+            <div class="right_area"><div class="item_step">step<span>2</span>/3</div></div>
+        </div>
+    </div>
+    <!----------------------------- m::header bar : s ----------------------------->
+  
+    <div class="body">
+        <div class="member_wrap">
+            <div class="page_title">
+                <h2>품앗이링크<br>회원 가입</h2>
+            </div>
+            
+            <div class="content_wrap">
+                <div>
+                    <ul class="input_ui">
+                        <li>
+                            <label class="input_label">닉네임<span class="essential">*</span></label>
+                            <input type="text" placeholder="">
+                        </li>
+                        <li>
+                            <label class="input_label">이름<span class="essential">*</span></label>
+                            <input type="text" placeholder="">
+                        </li>
+                        <li>
+                            <label class="input_label">전화번호<span class="essential">*</span></label>
+                            <input type="text" placeholder="">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="res_wrap">
+                <div class="btn_login_wrap">
+                    <button class="btn_primary btn_full_basic">회원가입</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- footer : s -->
+    <footer>
+      <div class="inner_wrap">
+        <div class="footer_top">
+            <div><img src="images/footer_logo.png" class="footer_logo"></div>
+            <div class="footer_menu">
+                <a href="notice.html">공지사항</a>
+                <a href="faq.html">FAQ</a>
+                <a href="terms.html">서비스 이용약관</a>
+                <a href="terms.html" class="txt_bold">개인 정보 취급방침</a>
+                <a href="terms.html">위치기반 서비스 이용약관</a>
+            </div>
+        </div>
+        <div class="footer_inner_wrap">
+            <div class="footer_left">
+                <div class="footer_info">
+                    <div class="item_wrap">
+                        <span class="fc_6">주식회사 품앗이 링크</span>
+                        <span>대표 정희운</span>
+                    </div>
+                    <div class="item_wrap">
+                        <span>사업자등록번호 801-81-02303</span><span>통신판매업 신고번호 제 2022-서울종로-1760 호</span>
+                        <a href="#" class="txt_link">[사업자정보확인]</a>
+                    </div>
+                    <div class="item_wrap">
+                        <span>서울시 금천구 가산디지털 1로 181 가산더블유센터 801호 </span>
+                    </div>
+                    <div class="item_wrap">
+                        <span>제휴 문의 huiwoon@daum.net</span>
+                        <span>고객센터 070-5126-2362</span>
+                        <span>개인정보관리책임자 정희운</span>
+                    </div>
+                </div>
+                <div class="copyright">Copyright © 2025, rocateer Co., Ltd.</div>
+            </div>
+          
+        </div>
+        
+      </div>
+    </footer>
+    <!-- footer : e -->
+
+
+    
+    </body>
+</html>

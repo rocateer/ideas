@@ -1,0 +1,260 @@
+<html lang="kor">
+<head>
+    <title>품앗elink-모두의 정보, 소통과 경제협력 공동체</title>
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!--메타 : 메타 태그만 사용-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!--내부 기본 CSS : 내부에서 생성한 CSS만 사용-->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/common_responsive.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_responsive.css">
+
+    <!--외부 CSS : 외부 모듈에서 제공된 CSS만 사용-->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+
+    <!--내부 기본 JS : 내부에서 생성한 JS 경우만 사용 하며. 이를 사용하기 위한 라이브러만사용(jquery.js) -->
+    <script src="js/jquery-1.12.4.min.js"></script> 
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/common.js"></script>
+
+    <!--외부 JS : 외부 모듈에서 제공된 JS만 사용-->
+    <script src="js/swiper.jquery.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+    <header class="off ease">
+        <div class="left_area">
+            <h1><a href="main.html"><img src="images/logo.png" class="header_logo"></a></h1>
+            <button onclick="sideNavToggle()"><img src="images/header_btn_close.png" class="ic_24 only_m"></button>
+        </div>
+
+        <!-- m :: s -->
+        <div class="m_my_wrap only_m">
+            <div class="group_between">
+                <div class="column_8">
+                    <span class="master_1">전문가</span>
+                    <div class="gray_600"><b>홍길동</b>님 환영합니다.</div>
+                </div>
+                <a href="main.html" class="header_btn">로그아웃</a>
+            </div>
+            <!-- 로그아웃 시 -->
+            <div class="item_wrap">
+                <a href="login.html" class="header_btn flex">로그인</a>
+                <a href="join_agree.html" class="header_btn flex">회원가입</a>
+            </div>
+        </div>
+        <!-- m :: e -->
+
+        <nav>
+            <ul>
+                <li><a href="master.html">마스터</a></li>
+                <li><a href="master_qa.html">지식공유</a></li>
+                <li><a href="community.html">커뮤니티</a></li>
+                <li><a href="chat.html">품앗이 챗</a></li>
+                <li class="only_m"><a href="#">마이페이지</a></li>
+            </ul>
+        </nav>
+
+        <div class="right_area">
+            <!-- 로그인 시 -->
+            <div class="menu_my menu_wrapper">
+                <button class="menu_item"><span class="master_1">전문가</span>홍길동님 환영합니다.</button>
+                <div class="my_submenu_wrap">
+                    <ul class="my_submenu">
+                        <li><a href="my_info.html">내 정보 수정</a></li>
+                        <li><a href="master_info.html">마스터 정보 수정</a></li>
+                        <li><a href="scrap_master.html">스크랩</a></li>
+                        <li><a href="my_community.html">내가 쓴 글</a></li>
+                        <li><a href="my_send_review.html">리뷰</a></li>
+                        <li><a href="qa.html">1:1 문의</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="only_pc"><a href="main.html" class="header_btn">로그아웃</a></div>
+            <!-- 로그아웃 시 -->
+            <div class="item_wrap only_pc">
+                <a href="login.html" class="header_btn">로그인</a>
+                <a href="join_agree.html" class="header_btn">회원가입</a>
+            </div>
+        </div>
+    </header>
+    <!----------------------------- m::header bar : s ----------------------------->
+    <div class="m_header_wrap">
+        <div class="m_header">
+            <div class="left_area"><button onclick="history.back()"><img src="images/header_btn_back.png"></button></div>
+            <div class="m_title">통합검색</div>
+            <div class="right_area"></div>
+        </div>
+    </div>
+    <!----------------------------- m::header bar : s ----------------------------->
+  
+    <div class="body">
+        <div class="inner_wrap full">
+            <div class="main_search total">
+                <div class="search_wrap">
+                    <input type="text" value="이사" placeholder="검색어를 입력해주세요.">
+                    <a href="search_master.html"><img src="images/btn_search.png"  class="only_pc"></a>
+                    <a href="search_master.html"><img src="images/ic_search.png" class="ic_24 only_m"></a>
+                </div>
+            </div>
+            <!-- Tab : s -->
+            <div class="swiper slide_tab">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="item_tab active" onclick="location.href='search_master.html'">
+                            마스터 (20)
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="item_tab" onclick="location.href='search_master_qa.html'">
+                            지식공유 (24)
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="item_tab" onclick="location.href='search_community.html'">
+                            품앗이 공동진행 (42)
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="item_tab" onclick="location.href='search_community.html'">
+                            품앗이 라운지 (32)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tab : e -->
+
+            <div class="list_space">
+                <!-- list : s -->
+                <div class="search_master_list">
+                    <div class="master_row">
+                        <div class="thumb_master_img">
+                            <div class="img_box"><img src="images/sp_1.png"></div>
+                        </div>
+                        <div class="master_con">
+                            <div class="item_1">OK로지스<span class="deep_primary">이사</span></div>
+                            <div class="item_2">포장<span class="deep_primary">이사</span>견적비교, 이사짐센터, 포장이사견적비교 </div>
+                            <div class="item_3">
+                                <div class="item_star"><img src="images/star_on.png"><b>4.5</b>(21)</div>
+                                <span class="item_4">· Q&amp;A 30개 · 경력 10년</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="master_row">
+                        <div class="thumb_master_img">
+                            <div class="img_box"><img src="images/sp_1.png"></div>
+                        </div>
+                        <div class="master_con">
+                            <span class="master_1">전문가</span>
+                            <div class="item_1">이사의 모든 것</div>
+                            <div class="item_2">포장이사견적비교, 이사짐센터, 포장이사견적비교 </div>
+                            <div class="item_3">
+                                <div class="item_star"><img src="images/star_on.png"><b>4.5</b>(21)</div>
+                                <span class="item_4">· Q&amp;A 30개 · 경력 10년</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="master_row">
+                        <div class="thumb_master_img">
+                            <div class="img_box"><img src="images/sp_1.png"></div>
+                        </div>
+                        <div class="master_con">
+                            <div class="item_1">이사 24시</div>
+                            <div class="item_2">포장이사견적비교, 이사짐센터, 포장이사견적비교, 포장이사견적비교 </div>
+                            <div class="item_3">
+                                <div class="item_star"><img src="images/star_on.png"><b>4.5</b>(21)</div>
+                                <span class="item_4">· Q&amp;A 30개 · 경력 10년</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- list : e -->
+             </div>
+            <div class="btn_more_wrap">
+                <button class="btn_more">더보기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer : s -->
+    <footer>
+      <div class="inner_wrap">
+        <div class="footer_top">
+            <div><img src="images/footer_logo.png" class="footer_logo"></div>
+            <div class="footer_menu">
+                <a href="notice.html">공지사항</a>
+                <a href="faq.html">FAQ</a>
+                <a href="terms.html">서비스 이용약관</a>
+                <a href="terms.html" class="txt_bold">개인 정보 취급방침</a>
+                <a href="terms.html">위치기반 서비스 이용약관</a>
+            </div>
+        </div>
+        <div class="footer_inner_wrap">
+            <div class="footer_left">
+                <div class="footer_info">
+                    <div class="item_wrap">
+                        <span class="fc_6">주식회사 품앗이 링크</span>
+                        <span>대표 정희운</span>
+                    </div>
+                    <div class="item_wrap">
+                        <span>사업자등록번호 801-81-02303</span><span>통신판매업 신고번호 제 2022-서울종로-1760 호</span>
+                        <a href="#" class="txt_link">[사업자정보확인]</a>
+                    </div>
+                    <div class="item_wrap">
+                        <span>서울시 금천구 가산디지털 1로 181 가산더블유센터 801호 </span>
+                    </div>
+                    <div class="item_wrap">
+                        <span>제휴 문의 huiwoon@daum.net</span>
+                        <span>고객센터 070-5126-2362</span>
+                        <span>개인정보관리책임자 정희운</span>
+                    </div>
+                </div>
+                <div class="copyright">Copyright © 2025, rocateer Co., Ltd.</div>
+            </div>
+          
+        </div>
+        
+      </div>
+    </footer>
+    <!-- footer : e -->
+
+    <script>
+    //탭
+    var slide_tab = new Swiper(".slide_tab", {
+        slidesPerView: "auto",
+        spaceBetween: 16,
+        slidesOffsetBefore:0,
+        keyboard: true,
+        breakpoints: {
+        1024: {
+            slidesPerView: "auto",
+            spaceBetween:16
+        }
+    }
+    });
+
+    //이미지
+    var img_slide = new Swiper(".img_slide", {
+        slidesPerView: "auto",
+        spaceBetween: 10,
+        slidesOffsetBefore:0,
+        keyboard: true,
+        breakpoints: {
+        1024: {
+            slidesPerView: "auto",
+            spaceBetween:10
+        }
+    }
+    });
+    </script>
+    
+    </body>
+</html>
