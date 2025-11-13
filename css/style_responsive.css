@@ -6,7 +6,7 @@
     .inner_title{font-size: 20px;}
     .member_wrap{width: 100%; padding:36px 0px 40px 0px;}
     .login_logo{margin:0px auto 20px; display: block;}
-    .login_logo img{width:150px;}
+    .login_logo img{width:150px; display: block;}
     .page_tit_bar{display: none;}
     .join_step_wrap{display:none;}
     .bottom_btn_between{display:flex; flex-direction:column;}
