@@ -92,6 +92,7 @@
     .item_action span{font-size: 14px;}
     .bottom_item_between .bottom_item_wrap{padding: 0; gap:6px;}
     .board_group.detail .item_tit{font-size: 20px;}
+    .board_group.detail .group_1{padding: 0 !important;}
 
     .btn_more{padding:12px; font-size:16px;}
     .layer_menu a, .layer_menu button{color: var(--gray_600) !important; justify-content:center; font-family: 'font-r' !important;}
