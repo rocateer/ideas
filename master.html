@@ -1,0 +1,828 @@
+<html lang="kor">
+<head>
+    <title>품앗elink-모두의 정보, 소통과 경제협력 공동체</title>
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!--메타 : 메타 태그만 사용-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!--내부 기본 CSS : 내부에서 생성한 CSS만 사용-->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/common_responsive.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_responsive.css">
+
+    <!--외부 CSS : 외부 모듈에서 제공된 CSS만 사용-->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+
+    <!--내부 기본 JS : 내부에서 생성한 JS 경우만 사용 하며. 이를 사용하기 위한 라이브러만사용(jquery.js) -->
+    <script src="js/jquery-1.12.4.min.js"></script> 
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/common.js"></script>
+
+    <!--외부 JS : 외부 모듈에서 제공된 JS만 사용-->
+    <script src="js/swiper.jquery.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCINzD6NqokvwaigyKBcskZJvz-i9kFLMo&callback=initMap"></script>
+    <script>
+    let map;
+    let activeMarker = null; // 현재 선택된 마커 저장용
+
+    function initMap() {
+        // 기본 지도 설정
+        const center = { lat: 37.5665, lng: 126.9780 }; // 서울 중심
+        map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 10,
+            center: center,
+        });
+
+        // 마커 샘플 좌표
+        const locations = [
+            { lat: 37.5665, lng: 126.9780, title: "서울시청" },
+            { lat: 37.5700, lng: 126.9830, title: "경복궁" },
+            { lat: 37.5512, lng: 126.9882, title: "남산타워" }
+        ];
+
+        // 기본/활성 마커 아이콘
+        // const defaultIcon = "https://maps.google.com/mapfiles/ms/icons/red-dot.png";
+        const defaultIcon = "images/pin.png";
+        const activeIcon = "images/pin_active.png";
+
+        // 마커 생성
+        locations.forEach((loc) => {
+            const marker = new google.maps.Marker({
+                position: { lat: loc.lat, lng: loc.lng },
+                map,
+                title: loc.title,
+                icon: defaultIcon
+            });
+
+            // 클릭 이벤트
+            marker.addListener("click", () => {
+                // 이전 선택 마커 원상복구
+                if (activeMarker && activeMarker !== marker) {
+                    activeMarker.setIcon(defaultIcon);
+                }
+
+                // 현재 마커 변경
+                marker.setIcon(activeIcon);
+                activeMarker = marker;
+            });
+        });
+    }
+</script>
+</head>
+
+<body>
+    <header class="off ease">
+        <div class="left_area">
+            <h1><a href="main.html"><img src="images/logo.png" class="header_logo"></a></h1>
+            <button onclick="sideNavToggle()"><img src="images/header_btn_close.png" class="ic_24 only_m"></button>
+        </div>
+
+        <!-- m :: s -->
+        <div class="m_my_wrap only_m">
+            <div class="group_between">
+                <div class="column_8">
+                    <span class="master_1">전문가</span>
+                    <div class="gray_600"><b>홍길동</b>님 환영합니다.</div>
+                </div>
+                <a href="main.html" class="header_btn">로그아웃</a>
+            </div>
+            <!-- 로그아웃 시 -->
+            <div class="item_wrap">
+                <a href="login.html" class="header_btn flex">로그인</a>
+                <a href="join_agree.html" class="header_btn flex">회원가입</a>
+            </div>
+        </div>
+        <!-- m :: e -->
+
+        <nav>
+            <ul>
+                <li><a href="master.html" class="active">마스터</a></li>
+                <li><a href="master_qa.html">지식공유</a></li>
+                <li><a href="community.html">커뮤니티</a></li>
+                <li><a href="chat.html">품앗이 챗</a></li>
+                <li class="only_m"><a href="#">마이페이지</a></li>
+            </ul>
+        </nav>
+
+        <div class="right_area">
+            <!-- 로그인 시 -->
+            <div class="menu_my menu_wrapper">
+                <button class="menu_item"><span class="master_1">전문가</span>홍길동님 환영합니다.</button>
+                <div class="my_submenu_wrap">
+                    <ul class="my_submenu">
+                        <li><a href="my_info.html">내 정보 수정</a></li>
+                        <li><a href="master_info.html">마스터 정보 수정</a></li>
+                        <li><a href="scrap_master.html">스크랩</a></li>
+                        <li><a href="my_community.html">내가 쓴 글</a></li>
+                        <li><a href="my_send_review.html">리뷰</a></li>
+                        <li><a href="qa.html">1:1 문의</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="only_pc"><a href="main.html" class="header_btn">로그아웃</a></div>
+            <!-- 로그아웃 시 -->
+            <div class="item_wrap only_pc">
+                <a href="login.html" class="header_btn">로그인</a>
+                <a href="join_agree.html" class="header_btn">회원가입</a>
+            </div>
+        </div>
+    </header>
+    <!----------------------------- m::header bar : s ----------------------------->
+    <div class="m_header_wrap">
+        <div class="m_header">
+            <div class="left_area"><button onclick="history.back()"><img src="images/header_btn_back.png"></button></div>
+            <div class="m_title">마스터</div>
+            <div class="right_area"></div>
+        </div>
+    </div>
+    <!----------------------------- m::header bar : s ----------------------------->
+  
+    <div class="body body_map">
+
+        <!-- 검색 : s -->
+        <div class="search_full_wrap">
+            <div class="inner_wrap col_16">
+                <div class="item_wrap">
+                    <div class="custom_select">
+                        <div class="selected">국내/해외</div>
+                        <ul class="options">
+                            <li>국내</li>
+                            <li>해외</li>
+                        </ul>
+                    </div>
+                    <div class="custom_select">
+                        <div class="selected">카테고리 선택</div>
+                        <ul class="options">
+                            <li>-</li>
+                            <li>-</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item_wrap">
+                    <div class="search_input">
+                        <input type="text" placeholder="검색어를 입력해 주세요.">
+                        <button>
+                            <img src="images/btn_search.png" class="ic_48 only_pc">
+                            <img src="images/ic_search.png" class="ic_24 only_m">
+                        </button>
+                    </div>
+                    <button class="only_m btn_map">
+                        <img src="images/btn_map.png" class="ic_48">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 검색 : e -->
+
+        <div class="master_wrap">
+            <!-- side list : s -->
+            <div class="side_master_list">
+                <div class="tab_menu sort_wrap">
+                    <div class="active">이름순</div>
+                    <div>인기순</div>
+                    <div>Q&A 많은 순</div>
+                    <div>경력순</div>
+                </div>
+                <div class="master_list scrollbar">
+                    <div class="master_row master_open">
+                        <div class="thumb_master_img">
+                            <div class="img_box"><img src="images/sp_2.png"></div>
+                        </div>
+                        <div class="master_con">
+                            <span class="master_1">전문가</span>
+                            <div class="item_1">이사의 모든 것 이사의 모든 것 이사의 모든 것</div>
+                            <div class="item_2">포장이사견적비교, 이사짐센터 </div>
+                            <div class="item_3">
+                                <div class="item_star"><img src="images/star_on.png"><b>4.5</b>(21)</div>
+                                <span class="item_4">· Q&A 30개 · 경력 10년</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="master_row">
+                        <div class="thumb_master_img">
+                            <div class="img_box"><img src="images/sp_1.png"></div>
+                        </div>
+                        <div class="master_con">
+                            <div class="item_1">OK로지스이사</div>
+                            <div class="item_2">포장이사견적비교, 이사짐센터, 포장이사견적비교 </div>
+                            <div class="item_3">
+                                <div class="item_star"><img src="images/star_on.png"><b>4.5</b>(21)</div>
+                                <span class="item_4">· Q&A 30개 · 경력 10년</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 1000px;"></div>
+                </div>
+            </div>
+            <!-- side list : e -->
+
+            <!-- 프로필 layer : s -->
+            <div class="profile_layer">
+                <div class="master_profile_wrap">
+                    <div class="profile_group">
+                        <div class="header_master">
+                            <button class="master_open"><img src="images/header_btn_close.png"></button>
+                            <div class="item_wrap">
+                                <button class="master_scrap" onclick="btn_wish(this)"></button>
+                                <button><img src="images/header_share.png"></button>
+                                <div class="relative">
+                                    <button class="toggle_btn"><img src="images/header_btn_dot.png"></button>
+                                    <div class="toggle_layer layer_menu">
+                                        <button onclick="modal_open('report')">신고</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile_body scrollbar">
+                            <div class="profile_main_img">
+                                <div class="img_box"><img src="images/sp_1.png"></div>
+                            </div>
+                            <div class="profile_info_wrap">
+                                <div class="column_8">
+                                    <div class="txt_item_1">이사의 모든 것</div>
+                                    <div class="txt_item_2">포장이사견적비교, 이사짐센터</div>
+                                </div>
+                                <div class="item_wrap">
+                                    <div class="item_star"><img src="images/star_on.png"><b>4.5</b>(21)</div>
+                                    <span class="txt_item_3">· Q&A 30개 · 경력 10년</span>
+                                </div>
+                                <div class="item_tag_wrap">
+                                    <span class="item_tag">#해외이사</span>
+                                    <span class="item_tag">#국내지식</span>
+                                    <span class="item_tag">#노하우</span>
+                                    <span class="item_tag">#해외이사</span>
+                                    <span class="item_tag">#포장이사</span>
+                                    <span class="item_tag">#1인이사</span>
+                                    <span class="item_tag">#원룸이사</span>
+                                </div>
+                                <div class="item_link">
+                                    <a href="#" target="_blank"><img src="images/sc_ic_01.png"></a>
+                                    <a href="#" target="_blank"><img src="images/sc_ic_02.png"></a>
+                                    <a href="#" target="_blank"><img src="images/sc_ic_03.png"></a>
+                                    <a href="#" target="_blank"><img src="images/sc_ic_04.png"></a>
+                                    <a href="#" target="_blank"><img src="images/sc_ic_05.png"></a>
+                                    <a href="#" target="_blank"><img src="images/sc_ic_06.png"></a>
+                                </div>
+                                <a href="chat.html" class="btn_primary_line btn_full_basic">1:1 문의</a>
+                            </div>
+                            <div class="tab_toggle tab_1">
+                                <div class="active">소개</div>
+                                <div>지식공유</div>
+                                <div>커뮤니티</div>
+                                <div>댓글</div>
+                                <div>리뷰</div>
+                            </div>
+                            <div class="tab_area_wrap tab_1_area">
+                                <!-- 소개 : s -->
+                                <div class="info_body">
+                                    <div class="column_8">
+                                        <div class="info_tit">주소</div>
+                                        <div class="info_con">서울특별시 금천구 가산디지털 1로 142, 302호</div>
+                                        <div><img src="images/s_map.png" style="width: 100%; height:150px;"></div>
+                                    </div>
+                                    <div class="column_8">
+                                        <div class="info_tit">서비스 가능 지역</div>
+                                        <div class="info_con">서울,인천,경기 (일부지역제외)</div>
+                                    </div>
+                                    <div class="column_8">
+                                        <div class="info_tit">소개</div>
+                                        <div class="info_con">업체 선정부터 문제 해결까지, 빈틈없이 책임지는 이사 플랫폼! 부당한 추가금, 분실/파손 문제가 발생하면 안심플러스로 해결해 드려요.
+    전국 어디든 365일 무료 비대면 견적 받고 비교하자! 원룸부터 사무실, 아파트, 포장, 반포장, 일반, 소형 보관 이사 파손 시 업계 유일 100% 보상 최대 500만원.</div>
+                                    </div>
+                                </div>
+                                <!-- 소개 : e -->
+
+                                <!-- 지식공유 : s -->
+                                <div>
+                                    <div class="item_total_sm">총 3개</div>
+                                    <!-- <div class="no_data">
+                                        <p class="fs_16">등록된 글이 없습니다.</p>
+                                    </div> -->
+                                    <div class="master_board">
+                                        <a href="master_qa_detail.html" class="master_board_row">
+                                            <div class="sm_con">
+                                                <div class="item_badge">
+                                                    <img src="images/ic_choose_badge.png"> 채택
+                                                </div>
+                                                <div class="txt_item_1">Q. 이럴때는 어떻게 해야하나요? 이럴때는 어떻게 해야하나요?</div>
+                                                <div class="txt_item_2">
+                                                    <span>A</span> 예전에 음식값을 지불하지 못하여 사기죄로 고소 했다고하는데 가게 주인과 합의를 다했는데 경찰서에서 사기죄로 입건되어 무조건 경찰서에 와서 진술해야고 한다하는데
+                                                </div>
+                                            </div>
+                                            <div class="thumb_sm_img">
+                                                <span class="num_mark">+3</span>
+                                                <div class="img_box"><img src="images/sp_1.png"></div>
+                                            </div>
+                                        </a>
+                                        <a href="master_qa_detail.html" class="master_board_row">
+                                            <div class="sm_con">
+                                                <div class="txt_item_1">Q. 집 매도를 진행중인데 매수자의 요구 무조건 들어 줘야하나요?</div>
+                                                <div class="txt_item_2">
+                                                    <span>A</span> 예전에 음식값을 지불하지 못하여 사기죄로 고소 했다고하는데 가게 주인과 합의를 다했는데 경찰서에서 사기죄로 입건되어 무조건 경찰서에 와서 진술해야고 한다하는데
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- 지식공유 : e -->
+
+                                <!-- 커뮤니티 : s -->
+                                <div>
+                                    <div class="item_total_sm">총 3개</div>
+                                    <div class="no_data">
+                                        <p class="fs_16">등록된 글이 없습니다.</p>
+                                    </div>
+                                    <div class="master_board">
+                                        <div class="board_sm_row">
+                                            <div class="group_between">
+                                                <span class="community_category">공동진행 품앗이</span>
+                                                <span class="txt_date">2025.09.02 12:32</span>
+                                            </div>
+                                            <a href="community_detail.html" class="master_board_row">
+                                                <div class="sm_con">
+                                                    <div class="txt_item_1">다른 플랫폼보다 지식품앗이가 좋은이유~?</div>
+                                                    <div class="txt_item_2">
+                                                        예전에 음식값을 지불하지 못하여 사기죄로 고소 했다고하는데 가게 주인과 합의를 다했는데 경찰서에서 사기죄로 입건되어 무조건 경찰서에 와서 진술해야고 한다하는데
+                                                    </div>
+                                                </div>
+                                                <div class="thumb_sm_img">
+                                                    <span class="num_mark">+3</span>
+                                                    <div class="img_box"><img src="images/sp_1.png"></div>
+                                                </div>
+                                            </a>
+                                            <div class="bottom_item_wrap">
+                                                <div class="item_action sm">
+                                                    <img src="images/ic_view.png">253
+                                                </div>
+                                                <div class="item_action sm">
+                                                    <img src="images/ic_comment.png">15
+                                                </div>
+                                                <button class="item_action sm" onclick="btn_wish(this)">
+                                                    <div class="item_scrap ease"></div>
+                                                    <span>253</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="board_sm_row">
+                                            <div class="group_between">
+                                                <span class="community_category">공동진행 품앗이</span>
+                                                <span class="txt_date">2025.09.02 12:32</span>
+                                            </div>
+                                            <a href="community_detail.html" class="master_board_row">
+                                                <div class="sm_con">
+                                                    <div class="txt_item_1">비가 계속 내리네요.</div>
+                                                    <div class="txt_item_2">
+                                                        예전에 음식값을 지불하지 못하여 사기죄로 고소 했다고하는데 가게 주인과 합의를 다했는데 경찰서에서 사기죄로 입건되어 무조건 경찰서에 와서 진술해야고 한다하는데
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class="bottom_item_wrap">
+                                                <div class="item_action sm">
+                                                    <img src="images/ic_view.png">253
+                                                </div>
+                                                <div class="item_action sm">
+                                                    <img src="images/ic_comment.png">15
+                                                </div>
+                                                <button class="item_action sm" onclick="btn_wish(this)">
+                                                    <div class="item_scrap ease"></div>
+                                                    <span>253</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 커뮤니티 : e -->
+
+                                <!-- 댓글 : s -->
+                                <div>
+                                    <div class="item_total_sm">총 3개</div>
+                                    <div class="no_data">
+                                        <p class="fs_16">등록된 댓글이 없습니다.</p>
+                                    </div>
+                                    <div class="master_board">
+                                        <div class="board_sm_row">
+                                            <div class="group_between">
+                                                <span class="community_category">공동진행 품앗이</span>
+                                                <span class="txt_date">2025.09.02 12:32</span>
+                                            </div>
+                                            <a href="community_detail.html" class="master_board_row">
+                                                <div class="sm_con">
+                                                    <div class="txt_item_1">다른 플랫폼보다 지식품앗이가 좋은이유~?</div>
+                                                    <div class="txt_item_2">
+                                                        저도 공감해요. 추울 땐 역시 아아죠
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        
+                                        <div class="board_sm_row">
+                                            <div class="group_between">
+                                                <span class="community_category">공동진행 품앗이</span>
+                                                <span class="txt_date">2025.09.02 12:32</span>
+                                            </div>
+                                            <a href="community_detail.html" class="master_board_row">
+                                                <div class="sm_con">
+                                                    <div class="txt_item_1">비가 계속 내리네요.</div>
+                                                    <div class="txt_item_2">
+                                                        가을은 야구인데 비가 계속 와서 경기가 계속 연기되네요. ㅜ_ㅠ 1년 기다렸는데..
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="board_sm_row">
+                                            <div class="group_between">
+                                                <span class="community_category">공동진행 품앗이</span>
+                                                <span class="txt_date">2025.09.02 12:32</span>
+                                            </div>
+                                            <a href="community_detail.html" class="master_board_row">
+                                                <div class="sm_con">
+                                                    <div class="txt_item_1">내후년에 부천으로 이사를 가야하는데 추천</div>
+                                                    <div class="txt_item_2">
+                                                        반가워요! 저도 부천 사는데 부천 좋습니다~ 반가워요! 저도 부천 사는데 부천 좋습니다~ 반가워요! 저도 부천 사는데 부천 좋습니다~
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 댓글 : e -->
+
+                                <!-- 리뷰 : s -->
+                                <div>
+                                    <div class="item_total_sm">총 3개</div>
+                                    <div class="view_review_total">
+                                        <span class="item_1">3.5</span>
+                                        <span class="item_2">(24)</span>
+                                        <div class="view_star_wrap">
+                                            <img src="images/star_on.png">
+                                            <img src="images/star_on.png">
+                                            <img src="images/star_on.png">
+                                            <img src="images/star_half.png">
+                                            <img src="images/star.png">
+                                        </div>
+                                    </div>
+                                    <button class="btn_primary_line btn_full_basic" onclick="modal_open('review')">리뷰 작성</button>
+                                    <div class="fs_13 gray_600 mt10">
+                                        작성된 리뷰는 개인의 의견으로, <br>참고용으로만 활용하시기 바랍니다.
+                                    </div>
+                                    <div class="no_data">
+                                        <p class="fs_16">등록된 리뷰가 없습니다.</p>
+                                    </div>
+                                    <div class="master_board">
+                                        <div class="board_sm_row review_sm">
+                                            <div class="group_between">
+                                                <div class="profile_group_wrap">
+                                                    <div class="thumb_profile">
+                                                        <div class="img_box"><img src="images/sp_1.png"></div>
+                                                    </div>
+                                                    <div class="column_4">
+                                                        <div class="item_1">참치마요삼각</div>
+                                                        <div class="item_2">
+                                                            <div class="view_star_sm">
+                                                                <img src="images/star_on.png">
+                                                                <img src="images/star_on.png">
+                                                                <img src="images/star_on.png">
+                                                                <img src="images/star_half.png">
+                                                                <img src="images/star.png">
+                                                            </div>
+                                                            <b>4.0</b>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="txt_date">2025.09.02 12:32</div>
+                                            </div>
+                                            <div class="sm_con">
+                                                덕분에 마케팅 홍보를 원활하게 할 수 있었습니다. 감사합니다.
+                                            </div>
+                                        </div> 
+                                        <div class="board_sm_row review_sm">
+                                            <div class="group_between">
+                                                <div class="profile_group_wrap">
+                                                    <div class="thumb_profile">
+                                                        <div class="img_box"><img src="images/sp_1.png"></div>
+                                                    </div>
+                                                    <div class="column_4">
+                                                        <div class="item_1">참치마요삼각</div>
+                                                        <div class="item_2">
+                                                            <div class="view_star_sm">
+                                                                <img src="images/star_on.png">
+                                                                <img src="images/star_on.png">
+                                                                <img src="images/star_on.png">
+                                                                <img src="images/star_half.png">
+                                                                <img src="images/star.png">
+                                                            </div>
+                                                            <b>4.0</b>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="txt_date">2025.09.02 12:32</div>
+                                            </div>
+                                            <div class="sm_con">
+                                                덕분에 마케팅 홍보를 원활하게 할 수 있었습니다. 감사합니다.
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <!-- 리뷰 : e -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 프로필 layer : e -->
+
+            <!-- map : s -->
+             <div class="master_map">
+                <div class="m_header_wrap">
+                    <div class="m_header">
+                        <div class="left_area"><button class="btn_close"><img src="images/header_btn_close.png"></button></div>
+                        <div class="m_title">마스터</div>
+                        <div class="right_area"></div>
+                    </div>
+                </div>
+                <div id="map"></div>
+             </div>
+            <!-- map : e -->
+            
+            
+        </div>
+    </div>
+
+    <!-- modal 리뷰작성 : s -->
+    <div class="modal md_sm modal_review">
+      <div class="modal_title">
+        <h4>리뷰 작성</h4>
+        <img src="images/header_btn_close.png" class="md_btn_close" onclick="modal_close('review')">
+      </div>
+      <div class="modal_container">
+          <div class="column_24">
+            <div class="review_reg_wrap">
+                <span>전문가에 대한 솔직한 후기를 남겨 주세요!</span>
+                <div class="rating">
+                    <label class="rating__label rating__label--half" for="starhalf">
+                        <input type="radio" id="starhalf" class="rating__input" name="rating" value="">
+                        <span class="star-icon"></span>
+                    </label>
+                    <label class="rating__label rating__label--full" for="star1">
+                        <input type="radio" id="star1" class="rating__input" name="rating" value="">
+                        <span class="star-icon"></span>
+                    </label>
+                    <label class="rating__label rating__label--half" for="star1half">
+                        <input type="radio" id="star1half" class="rating__input" name="rating" value="">
+                        <span class="star-icon"></span>
+                    </label>
+                    <label class="rating__label rating__label--full" for="star2">
+                        <input type="radio" id="star2" class="rating__input" name="rating" value="">
+                        <span class="star-icon"></span>
+                    </label>
+                    <label class="rating__label rating__label--half" for="star2half">
+                        <input type="radio" id="star2half" class="rating__input" name="rating" value="">
+                        <span class="star-icon"></span>
+                    </label>
+                    <label class="rating__label rating__label--full" for="star3">
+                        <input type="radio" id="star3" class="rating__input" name="rating" value="">
+                        <span class="star-icon"></span>
+                    </label>
+                    <label class="rating__label rating__label--half" for="star3half">
+                        <input type="radio" id="star3half" class="rating__input" name="rating">
+                        <span class="star-icon"></span>
+                    </label>
+                    <label class="rating__label rating__label--full" for="star4">
+                        <input type="radio" id="star4" class="rating__input" name="rating" value="">
+                        <span class="star-icon"></span>
+                    </label>
+                    <label class="rating__label rating__label--half" for="star4half">
+                        <input type="radio" id="star4half" class="rating__input" name="rating" value="">
+                        <span class="star-icon"></span>
+                    </label>
+                    <label class="rating__label rating__label--full" for="star5">
+                        <input type="radio" id="star5" class="rating__input" name="rating" value="">
+                        <span class="star-icon"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="input_ui sm">
+                <div>
+                    <label class="input_label">내용을 남겨 주세요.<span class="essential">*</span></label>
+                    <textarea class="textarea_sm"></textarea>
+                </div>
+            </div>
+            
+            <div class="modal_btn_wrap">
+                <button class="btn_primary btn_full_basic">리뷰 등록</button>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="md_overlay md_overlay_review" onclick="modal_close('review')"></div>
+    <!-- modal 리뷰작성 : e -->
+
+    <!-- modal 신고하기 : s -->
+    <div class="modal md_sm modal_report">
+      <div class="modal_title">
+        <h4>신고하기</h4>
+        <img src="images/header_btn_close.png" class="md_btn_close" onclick="modal_close('report')">
+      </div>
+      <div class="modal_container">
+          <div class="column_24">
+            <div class="fs_16 gray_800 h_1">
+              부적절한 내용인가요?<br>모두가 즐길 수 있는 컨텐츠를 위해 <br>신고가 필요합니다.
+            </div>
+            <div class="input_ui sm">
+                <div class="custom_select">
+                    <div class="selected">신고항목을 선택해 주세요.</div>
+                    <ul class="options">
+                        <li>욕설·비방·차별·혐오</li>
+                        <li>광고·홍보, 영리 목적</li>
+                        <li>불법 등 유해 정보</li>
+                        <li>음란성 내용, 스토킹</li>
+                        <li>종교 또는 사상 권유</li>
+                        <li>개인정보 노출 및 유포</li>
+                        <li>반복 게시, 스팸</li>
+                        <li>기타</li>
+                    </ul>
+                </div>
+                <div>
+                    <label class="input_label">신고사유를 입력해 주세요.<span class="essential">*</span></label>
+                    <textarea></textarea>
+                </div>
+            </div>
+            
+            <div class="modal_btn_wrap">
+                <button class="btn_primary btn_full_basic">신고 접수</button>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="md_overlay md_overlay_report" onclick="modal_close('report')"></div>
+    <!-- modal 신고하기 : e -->
+
+    <script>
+    //구글 지도
+    document.addEventListener("DOMContentLoaded", function() {
+        const btnMap = document.querySelector(".btn_map");
+        const masterMap = document.querySelector(".master_map");
+        const btnClose = masterMap.querySelector(".btn_close");
+        let map;
+    
+
+        btnMap.addEventListener("click", function() {
+            masterMap.classList.add("on");
+            document.body.classList.add("no-scroll");
+            setTimeout(() => initMap(), 100); // 팝업이 열린 뒤 지도 초기화
+        });
+
+        btnClose.addEventListener("click", function() {
+            masterMap.classList.remove("on");
+            document.body.classList.remove("no-scroll");
+        });
+    });
+
+
+
+    // 탭 스크롤 ui
+    function getScrollParent(el) {
+        let parent = el.parentElement;
+        while (parent) {
+            const style = getComputedStyle(parent);
+            const overflowY = style.overflowY;
+            if (/(auto|scroll|overlay)/.test(overflowY)) return parent;
+            parent = parent.parentElement;
+        }
+        return document.scrollingElement || document.documentElement;
+        }
+
+        document.querySelectorAll('.tab_toggle div').forEach(tab => {
+        tab.addEventListener('click', function() {
+            const tabWrap = document.querySelector('.tab_1');
+            const scrollParent = getScrollParent(tabWrap);
+
+            const tabRect = tabWrap.getBoundingClientRect();
+            const parentRect = scrollParent === document.scrollingElement
+            ? { top: 0 }
+            : scrollParent.getBoundingClientRect();
+
+            const targetScrollTop = (scrollParent.scrollTop || 0) + (tabRect.top - parentRect.top);
+
+            if (scrollParent === document.scrollingElement || scrollParent === document.documentElement) {
+            window.scrollTo({ top: targetScrollTop, behavior: 'smooth' });
+            } else {
+            scrollParent.scrollTo({ top: targetScrollTop, behavior: 'smooth' });
+            }
+
+            document.querySelectorAll('.tab_toggle div').forEach(el => el.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    
+    //별점
+        const rateWrap = document.querySelectorAll('.rating'),
+          label = document.querySelectorAll('.rating .rating__label'),
+          input = document.querySelectorAll('.rating .rating__input'),
+          labelLength = label.length,
+          opacityHover = '0.5';
+
+        let stars = document.querySelectorAll('.rating .star-icon');
+        checkedRate();
+
+        rateWrap.forEach(wrap => {
+          wrap.addEventListener('mouseenter', () => {
+              stars = wrap.querySelectorAll('.star-icon');
+
+              stars.forEach((starIcon, idx) => {
+                  starIcon.addEventListener('mouseenter', () => {
+                      if (wrap.classList.contains('readonly') == false) {
+                          initStars(); // 기선택된 별점 무시하고 초기화
+                          filledRate(idx, labelLength);  // hover target만큼 별점 active
+
+                          // hover 시 active된 별점의 opacity 조정
+                          for (let i = 0; i < stars.length; i++) {
+                              if (stars[i].classList.contains('filled')) {
+                                  stars[i].style.opacity = opacityHover;
+                              }
+                          }
+                      }
+                  });
+
+                  starIcon.addEventListener('mouseleave', () => {
+                      if (wrap.classList.contains('readonly') == false) {
+                          starIcon.style.opacity = '1';
+                          checkedRate(); // 체크된 라디오 버튼 만큼 별점 active
+                      }
+                  });
+
+                  // rate wrap을 벗어날 때 active된 별점의 opacity = 1
+                  wrap.addEventListener('mouseleave', () => {
+                      if (wrap.classList.contains('readonly') == false) {
+                          starIcon.style.opacity = '1';
+                      }
+                  });
+
+                  // readonnly 일 때 비활성화
+                  wrap.addEventListener('click', (e) => {
+                      if (wrap.classList.contains('readonly')) {
+                          e.preventDefault();
+                      }
+                  });
+              });
+          });
+      });
+
+        // target보다 인덱스가 낮은 .star-icon에 .filled 추가 (별점 구현)
+        function filledRate(index, length) {
+            if (index <= length) {
+                for (let i = 0; i <= index; i++) {
+                    stars[i].classList.add('filled');
+                }
+            }
+        }
+
+      // 선택된 라디오버튼 이하 인덱스는 별점 active
+      function checkedRate() {
+          let checkedRadio = document.querySelectorAll('.rating input[type="radio"]:checked');
+
+
+          initStars();
+          checkedRadio.forEach(radio => {
+              let previousSiblings = prevAll(radio);
+
+              for (let i = 0; i < previousSiblings.length; i++) {
+                  previousSiblings[i].querySelector('.star-icon').classList.add('filled');
+              }
+
+              radio.nextElementSibling.classList.add('filled');
+
+              function prevAll() {
+                  let radioSiblings = [],
+                      prevSibling = radio.parentElement.previousElementSibling;
+
+                  while (prevSibling) {
+                      radioSiblings.push(prevSibling);
+                      prevSibling = prevSibling.previousElementSibling;
+                  }
+                  return radioSiblings;
+              }
+          });
+      }
+
+      // 별점 초기화 (0)
+      function initStars() {
+          for (let i = 0; i < stars.length; i++) {
+              stars[i].classList.remove('filled');
+          }
+      }
+    </script>
+    
+    
+    </body>
+</html>
