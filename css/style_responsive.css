@@ -28,6 +28,7 @@
     .cate_global_wrap .category{display:flex; gap:10px; flex-wrap: wrap; gap:10px; justify-content: flex-start;}
     .cate_global_wrap .item_global_cate{width:calc(25% - 8px); flex: none; height: auto; font-size: 16px;}
     .cate_global_wrap .item_cate_img{border-radius: 20px; height: auto; padding:16px 0;}
+    .my_answer{padding:80px 0 40px 0;}
 
     .slide_tab{padding:0 16px !important;}
 
@@ -118,7 +119,7 @@
     .chat_bubble_wrap .item_bubble{font-size: 15px;}
 
     /* 검색 */
-    .main_search .search_wrap{border:1px solid var(--gray_200); border-radius: 8px; padding:0 16px; align-items: center;}
+    .main_search.total .search_wrap{border:1px solid var(--gray_200); border-radius: 8px; padding:0 16px; align-items: center;}
     .main_search.total .search_wrap img{width: 24px;}
     .main_search.total .search_wrap input{font-size: 16px;}
     .search_master_list>div{width:100%;}
