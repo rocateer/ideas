@@ -241,6 +241,47 @@
         </div>
         
     </div>
+
+    <!-- modal 신고하기 : s -->
+    <div class="modal md_sm modal_report">
+      <div class="modal_title">
+        <h4>신고하기</h4>
+        <img src="images/header_btn_close.png" class="md_btn_close" onclick="modal_close('report')">
+      </div>
+      <div class="modal_container">
+          <div class="column_24">
+            <div class="fs_16 gray_800 h_1">
+              부적절한 내용인가요?<br>모두가 즐길 수 있는 컨텐츠를 위해 <br>신고가 필요합니다.
+            </div>
+            <div class="input_ui sm">
+                <div class="custom_select">
+                    <div class="selected">신고항목을 선택해 주세요.</div>
+                    <ul class="options">
+                        <li>욕설·비방·차별·혐오</li>
+                        <li>광고·홍보, 영리 목적</li>
+                        <li>불법 등 유해 정보</li>
+                        <li>음란성 내용, 스토킹</li>
+                        <li>종교 또는 사상 권유</li>
+                        <li>개인정보 노출 및 유포</li>
+                        <li>반복 게시, 스팸</li>
+                        <li>기타</li>
+                    </ul>
+                </div>
+                <div>
+                    <label class="input_label">신고사유를 입력해 주세요.<span class="essential">*</span></label>
+                    <textarea></textarea>
+                </div>
+            </div>
+            
+            <div class="modal_btn_wrap">
+                <button class="btn_primary btn_full_basic">신고 접수</button>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="md_overlay md_overlay_report" onclick="modal_close('report')"></div>
+    <!-- modal 신고하기 : e -->
+     
 <script>
     //채팅 글쓰기 resize
     function resize(obj) {
